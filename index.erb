@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CV Generator</title>
+    </head>
+    <body>
+        <% templates.each do |template| %>
+            <a href=<%= "templates/#{template}"%>><%= template %></p>
+        <% end %>
+    </body>
+</html>

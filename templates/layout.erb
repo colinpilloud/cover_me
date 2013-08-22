@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Generated CV</title>
+        <link rel="stylesheet" href="/css/cv.css">
+    </head>
+    <body>
+        <header>
+            <ul class="my-contact-info needs-defined">
+                <li>Edit me in templates/layout.erb!</li>
+                <li>23 Jump Street</li>
+                <li>Denver, CO 80204</li>
+            </ul>
+            <ul class="needs-defined">
+                <li>Contact Name</li>
+                <li>Company, Inc.</li>
+                <li>123 Main Street</li>
+                <li>Denver, CO 80204</li>
+            </ul>
+        </header>
+        <section role="main">
+            <p class="salutation needs-defined">Dear Mr./Mrs. Smith,</p>
+            <%= yield %>
+            <p><span class="needs-defined">I can be reached anytime by email at colin.pilloud@gmail.com, or by phone at (555) 555-5555.</span></p>
+        </section>
+        <footer>
+            <p>Sincerely,</p>
+            <p>Colin Pilloud</p>
+        </footer>
+    </body>
+</html>

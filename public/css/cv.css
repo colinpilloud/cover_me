@@ -1,0 +1,39 @@
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    margin: auto;
+    width: 800px;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.my-contact-info {
+    margin-left: 550px;
+}
+
+.salutation {
+    text-indent: 0;
+}
+
+p {
+    text-indent: 50px;
+}
+
+footer {
+    margin-left: 550px;
+}
+
+footer p {
+    text-indent: 0;
+}
+
+.needs-defined {
+    color: red;
+    font-weight: 700;
+}
