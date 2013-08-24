@@ -5,6 +5,8 @@ body {
     font-weight: 300;
     margin: auto;
     width: 800px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 ul {
@@ -33,7 +35,7 @@ footer p {
     text-indent: 0;
 }
 
-.needs-defined {
+.highlighted {
     color: red;
     font-weight: 700;
 }

@@ -3,30 +3,54 @@
     <head>
         <meta charset="utf-8">
         <title>Generated CV</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/cv.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <header>
-            <ul class="my-contact-info needs-defined">
-                <li>Edit me in templates/layout.erb!</li>
-                <li>23 Jump Street</li>
-                <li>Denver, CO 80204</li>
+        <div id="cv">
+            <ul class="my-contact-info">
+                <li><span class="js-define highlighted" title="Your Street Address">23 Jump Street</span></li>
+                <li><span class="js-define highlighted" title="Your City/State/Zip">Denver, CO 80204</span></li>
             </ul>
-            <ul class="needs-defined">
-                <li>Contact Name</li>
-                <li>Company, Inc.</li>
-                <li>123 Main Street</li>
-                <li>Denver, CO 80204</li>
+            <ul>
+                <li><span class="js-define highlighted" title="Their Name">Contact Name</span></li>
+                <li><span class="js-define highlighted" title="Their Business Name">Company Name, Inc.</span></li>
+                <li><span class="js-define highlighted" title="Their Street Address">123 Main Street</span></li>
+                <li><span class="js-define highlighted" title="Their City/State/Zip">Denver, CO 80204</span></li>
             </ul>
-        </header>
-        <section role="main">
-            <p class="salutation needs-defined">Dear Mr./Mrs. Smith,</p>
-            <%= yield %>
-            <p><span class="needs-defined">I can be reached anytime by email at colin.pilloud@gmail.com, or by phone at (555) 555-5555.</span></p>
-        </section>
-        <footer>
-            <p>Sincerely,</p>
-            <p>Colin Pilloud</p>
-        </footer>
+            <section role="main">
+                <p class="salutation"><span class="js-define highlighted" title="Salutation">Dear Mr./Mrs. Smith,</span></p>
+                <%= yield %>
+                <p><span class="js-define highlighted" title="Contact Info">I can be reached anytime by email at colin.pilloud@gmail.com, or by phone at (555) 555-5555.</span></p>
+            </section>
+            <footer>
+                <p>Sincerely,</p>
+                <p><span class="js-define highlighted" title="Your Name">Colin Pilloud</span></p>
+            </footer>
+        </div>
+
+        <script>
+            function updateText(updatedText, id) {
+                var index = id.split("-")[1];
+                $("#field-" + index).text(updatedText);
+                $("#field-" + index).removeClass("highlighted");
+                $("#field-" + index).popover('hide');
+            }
+
+            function generateInputElement(n) {
+                return $("<input/>", { id: "input-" + n, type:"text", value:"", onchange:"updateText(this.value, this.id);" });
+            }
+
+            $(".js-define").each(function(index) {
+                $(this).attr('id', "field-" + index);
+                $(this).popover({
+                    "html": true,
+                    "placement": "bottom",
+                    "content": generateInputElement(index)
+                });
+            });
+        </script>
     </body>
 </html>
