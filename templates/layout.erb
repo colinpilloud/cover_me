@@ -11,8 +11,8 @@
     <body>
         <div id="cv">
             <ul class="my-contact-info">
-                <li><span class="js-define highlighted" title="Your Street Address">23 Jump Street</span></li>
-                <li><span class="js-define highlighted" title="Your City/State/Zip">Denver, CO 80204</span></li>
+                <li><%= street_address %></li>
+                <li><%= "#{city}, #{state} #{zip}" %></li>
             </ul>
             <ul>
                 <li><span class="js-define highlighted" title="Their Name">Contact Name</span></li>
@@ -23,11 +23,11 @@
             <section role="main">
                 <p class="salutation"><span class="js-define highlighted" title="Salutation">Dear Mr./Mrs. Smith,</span></p>
                 <%= yield %>
-                <p><span class="js-define highlighted" title="Contact Info">I can be reached anytime by email at colin.pilloud@gmail.com, or by phone at (555) 555-5555.</span></p>
+                <p>I can be reached anytime by email at <%= email %>, or by phone at <%= phone %></p>
             </section>
             <footer>
                 <p>Sincerely,</p>
-                <p><span class="js-define highlighted" title="Your Name">Colin Pilloud</span></p>
+                <p><%= name %></p>
             </footer>
         </div>
 
