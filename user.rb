@@ -8,8 +8,8 @@ class User
     if @attrs.key?(method)
       return @attrs[method]
     else
-      format = method.split("_").map { |it| it.capitalize }.join(" ")
-      return "<span class='js-define highlighted' title='#{format}'>#{format}</span>"
+      method = method.split("_").map { |it| it.capitalize }.join(" ")
+      return "<span class='js-define highlighted' title='#{method}'>#{method}</span>"
     end
   end
 end
