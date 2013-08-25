@@ -40,3 +40,7 @@ footer {
 .btn {
     display: none;
 }
+
+.popover {
+    text-indent: 0;
+}
