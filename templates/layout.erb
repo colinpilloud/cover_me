@@ -14,6 +14,7 @@
                 <li><%= street_address %></li>
                 <li><%= "#{city}, #{state} #{zip}" %></li>
             </ul>
+            <p class="date"><%= Time.now.strftime("%B %d, %Y")%></p>
             <ul>
                 <li><span class="js-define highlighted" title="Their Name">Contact Name</span></li>
                 <li><span class="js-define highlighted" title="Their Business Name">Company Name, Inc.</span></li>
