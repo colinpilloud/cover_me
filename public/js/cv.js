@@ -1,14 +1,3 @@
-function updateText(updatedText, id) {
-    var index = id.split("-")[1];
-    $("#field-" + index).text(updatedText);
-    $("#field-" + index).removeClass("highlighted");
-    $("#field-" + index).popover('hide');
-}
-
-function generateInputElement(n) {
-    return $("<input/>", { id: "input-" + n, type:"text", value:"", onchange:"updateText(this.value, this.id);" });
-}
-
 $(document).ready(function () {
     $(".js-define").each(function(index) {
         $(this).attr('id', "field-" + index);
@@ -18,7 +7,22 @@ $(document).ready(function () {
             "content": generateInputElement(index)
         });
     });
+
+    $(".js-use").click(function() {
+        window.location.href = "templates/" + $("select").val();
+    });
 });
+
+function updateText(updatedText, id) {
+    var updatedElementId = "#field-" + id.split("-")[1];
+    $(updatedElementId).text(updatedText);
+    $(updatedElementId).removeClass("highlighted");
+    $(updatedElementId).popover('hide');
+}
+
+function generateInputElement(n) {
+    return $("<input/>", { id: "input-" + n, type:"text", value:"", onchange:"updateText(this.value, this.id);" });
+}
 
 function showPreview(templateName) {
     $.get("templates/" + templateName, { "layout" : false }, function(data, status) {
@@ -26,9 +30,3 @@ function showPreview(templateName) {
         $(".js-use").show();enableButton();
     });
 }
-
-$(document).ready(function() {
-    $(".js-use").click(function() {
-        window.location.href = "templates/" + $("select").val();
-    });
-});
