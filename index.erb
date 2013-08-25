@@ -3,10 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>CV Generator</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     </head>
     <body>
-        <% templates.each do |template| %>
-            <a href=<%= "templates/#{template}"%>><%= template %></p>
-        <% end %>
+        <select name="template" onchange="showPreview(this.value);">
+            <option value="" disabled="disabled" selected="selected">Select a CV template</option>
+            <% templates.map do |template| %>
+                <%= "<option value=#{template}>#{template}</option>" %>
+            <% end %>
+        </select>
     </body>
+    <script>
+        function showPreview(templateName) {
+            $.get("templates/" + templateName, function(data, status) {
+                // do a thang
+            });
+        }
+    </script>
 </html>
