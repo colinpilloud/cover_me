@@ -9,28 +9,25 @@
         <script src="/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div id="cv">
-            <ul class="my-contact-info">
-                <li><%= street_address %></li>
-                <li><%= "#{city}, #{state} #{zip}" %></li>
-            </ul>
-            <p class="date"><%= Time.now.strftime("%B %d, %Y")%></p>
-            <ul>
-                <li><span class="js-define highlighted" title="Their Name">Contact Name</span></li>
-                <li><span class="js-define highlighted" title="Their Business Name">Company Name, Inc.</span></li>
-                <li><span class="js-define highlighted" title="Their Street Address">123 Main Street</span></li>
-                <li><span class="js-define highlighted" title="Their City/State/Zip">Denver, CO 80204</span></li>
-            </ul>
-            <section role="main">
-                <p class="salutation"><span class="js-define highlighted" title="Salutation">Dear Mr./Mrs. Smith,</span></p>
-                <%= yield %>
-                <p>I can be reached anytime by email at <%= email %>, or by phone at <%= phone %></p>
-            </section>
-            <footer>
-                <p>Sincerely,</p>
-                <p><%= name %></p>
-            </footer>
-        </div>
+        <ul class="my-contact-info">
+            <li><%= street_address %></li>
+            <li><%= "#{city}, #{state} #{zip}" %></li>
+        </ul>
+        <p class="date"><%= Time.now.strftime("%B %d, %Y")%></p>
+        <ul>
+            <li><span class="js-define highlighted" title="Their Name">Contact Name</span></li>
+            <li><span class="js-define highlighted" title="Their Business Name">Company Name, Inc.</span></li>
+            <li><span class="js-define highlighted" title="Their Street Address">123 Main Street</span></li>
+            <li><span class="js-define highlighted" title="Their City/State/Zip">Denver, CO 80204</span></li>
+        </ul>
+        <p class="salutation"><span class="js-define highlighted" title="Salutation">Dear Mr./Mrs. Smith,</span></p>
+        <section role="main">
+            <%= yield %>
+        </section>
+        <footer>
+            <p>Sincerely,</p>
+            <p><%= name %></p>
+        </footer>
         <script src="/js/cv.js"></script>
     </body>
 </html>

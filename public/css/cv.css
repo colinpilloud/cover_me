@@ -5,8 +5,8 @@ body {
     font-weight: 300;
     margin: auto;
     width: 800px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 ul {
@@ -15,29 +15,20 @@ ul {
     padding-left: 0;
 }
 
+section p {
+    text-indent: 50px;
+}
+
 .my-contact-info {
     margin-left: 550px;
 }
 
 .date {
     margin-left: 550px;
-    text-indent: 0;
-}
-
-.salutation {
-    text-indent: 0;
-}
-
-p {
-    text-indent: 50px;
 }
 
 footer {
     margin-left: 550px;
-}
-
-footer p {
-    text-indent: 0;
 }
 
 .highlighted {
