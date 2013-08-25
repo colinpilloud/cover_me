@@ -10,8 +10,8 @@
     </head>
     <body>
         <ul class="my-contact-info">
-            <li><%= street_address %></li>
-            <li><%= "#{city}, #{state} #{zip}" %></li>
+            <li><%= u.street_address %></li>
+            <li><%= "#{u.city}, #{u.state} #{u.zip}" %></li>
         </ul>
         <p class="date"><%= Time.now.strftime("%B %d, %Y")%></p>
         <ul>
@@ -26,7 +26,7 @@
         </section>
         <footer>
             <p>Sincerely,</p>
-            <p><%= name %></p>
+            <p><%= u.name %></p>
         </footer>
         <script src="/js/cv.js"></script>
     </body>

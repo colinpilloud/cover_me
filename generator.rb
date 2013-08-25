@@ -2,6 +2,7 @@
 
 require 'sinatra'
 require 'json'
+require_relative 'user'
 
 set :port, 8080
 set :views, settings.root + '/templates'
@@ -17,10 +18,11 @@ end
 
 get "/templates/:name" do
   template_symbol = params[:name].split(".")[0].to_sym
+  user = User.new(JSON.parse(IO.read("config.json")))
   if (params[:layout].eql?("false"))
-    erb(template_symbol, :layout => false, :locals => JSON.parse(IO.read("config.json")))
+    erb(template_symbol, :layout => false, :locals => { "u" => user })
   else
-    erb(template_symbol, :locals => JSON.parse(IO.read("config.json")))
+    erb(template_symbol, :locals => { "u" => user })
   end
 end
 
