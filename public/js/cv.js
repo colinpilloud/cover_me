@@ -19,3 +19,16 @@ $(document).ready(function () {
         });
     });
 });
+
+function showPreview(templateName) {
+    $.get("templates/" + templateName, { "layout" : false }, function(data, status) {
+        $('.js-preview').html(data);
+        $(".js-use").show();enableButton();
+    });
+}
+
+$(document).ready(function() {
+    $(".js-use").click(function() {
+        window.location.href = "templates/" + $("select").val();
+    });
+});

@@ -4,21 +4,19 @@
         <meta charset="utf-8">
         <title>CV Generator</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/cv.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     </head>
     <body>
+
         <select name="template" onchange="showPreview(this.value);">
             <option value="" disabled="disabled" selected="selected">Select a CV template</option>
             <% templates.map do |template| %>
                 <%= "<option value=#{template}>#{template}</option>" %>
             <% end %>
         </select>
+        <div class="js-preview"></div>
+        <button class="js-use btn" type="submit">Use this template</button>
+        <script src="/js/cv.js"></script>
     </body>
-    <script>
-        function showPreview(templateName) {
-            $.get("templates/" + templateName, function(data, status) {
-                // do a thang
-            });
-        }
-    </script>
 </html>

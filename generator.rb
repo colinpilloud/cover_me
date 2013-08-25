@@ -16,7 +16,12 @@ get "/" do
 end
 
 get "/templates/:name" do
-  erb (params[:name].split(".")[0]).to_sym, :locals => JSON.parse(IO.read("config.json"))
+  template_symbol = params[:name].split(".")[0].to_sym
+  if (params[:layout].eql?("false"))
+    erb(template_symbol, :layout => false, :locals => JSON.parse(IO.read("config.json")))
+  else
+    erb(template_symbol, :locals => JSON.parse(IO.read("config.json")))
+  end
 end
 
 def template_list()
