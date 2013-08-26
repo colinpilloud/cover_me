@@ -14,10 +14,15 @@ $(document).ready(function () {
 });
 
 function updateText(updatedText, id) {
+    // given the id, find the title that matches
     var updatedElementId = "#field-" + id.split("-")[1];
-    $(updatedElementId).text(updatedText);
-    $(updatedElementId).removeClass("highlighted");
-    $(updatedElementId).popover('hide');
+    var titleToUpdate = $(updatedElementId).attr("data-original-title");
+
+    $('.js-define[data-original-title="' + titleToUpdate + '"]').each(function() {
+        $(this).text(updatedText);
+        $(this).removeClass("highlighted");
+        $(this).popover('hide');
+    });
 }
 
 function generateInputElement(n) {
